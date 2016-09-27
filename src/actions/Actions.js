@@ -1,9 +1,16 @@
 import AppDispatcher from '../AppDispatcher'
 
 const Actions ={
-   equal(){
+   equal(result){
      AppDispatcher.dispatch({
-       type: 'EQUAL'
+       type: 'EQUAL',
+       payload:{result}
+     })
+   },
+   eq(value){
+     AppDispatcher.dispatch({
+       type: 'EQ',
+       payload:{value}
      })
    },
    clear(){

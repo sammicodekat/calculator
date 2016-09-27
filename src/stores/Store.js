@@ -1,7 +1,8 @@
 import AppDispatcher from '../AppDispatcher';
 import {EventEmitter} from 'events';
 
-let _input =0;
+let _result = 0;
+let _expression = '';
 class Store extends EventEmitter{
   constructor(){
     super();
@@ -9,10 +10,16 @@ class Store extends EventEmitter{
       switch(action.type){
         case 'EQUAL':
         let {result} =action.payload;
-        return input = eval(result);
+        return _result = eval(result);
+        this.emit('CHANGE');
+        break;
+        case 'EQ':
+        let {value} =action.payload;
+        return _expression += value;
         this.emit('CHANGE');
         break;
         case 'CLEAR':
+        return _result = 0;
         this.emit('CHANGE');
         break;
       }
@@ -26,8 +33,11 @@ stopListening(cb){
   this.removeListener("CHANGE",cb);
 }
 
-getsum(){
-  return _input;
+_getresult(){
+  return _result;
+}
+_getexpression(){
+  return _expression;
 }
 }
 

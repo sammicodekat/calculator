@@ -7,7 +7,8 @@ export default class Layout extends Component {
   super(props);
 
   this.state = {
-    result: Store.getsum()
+    result: Store._getresult(),
+    expression:Store._getexpression()
   }
   this._onChange = this._onChange.bind(this);
 }
@@ -21,14 +22,15 @@ componentWillUnmount(){
 
 _onChange(){
   this.setState({
-    results: Store.getsum()
+    results: Store._getresult(),
+    expression:Store._getexpression()
   })
 }
   render(){
-    const {result} = this.state;
+    const {result,expression} = this.state;
     return (
       <div className="container">
-        <Keys result={result}/>
+        <Keys result={result} expression ={expression}/>
       </div>
     )
   }

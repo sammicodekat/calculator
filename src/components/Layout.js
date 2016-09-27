@@ -8,7 +8,7 @@ export default class Layout extends Component {
 
   this.state = {
     result: Store._getresult(),
-    expression:Store._getexpression()
+    expression: Store._getexpression()
   }
   this._onChange = this._onChange.bind(this);
 }
@@ -23,7 +23,7 @@ componentWillUnmount(){
 _onChange(){
   this.setState({
     results: Store._getresult(),
-    expression:Store._getexpression()
+    expression: Store._getexpression()
   })
 }
   render(){

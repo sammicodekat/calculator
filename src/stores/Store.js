@@ -10,12 +10,12 @@ class Store extends EventEmitter{
       switch(action.type){
         case 'EQUAL':
         let {result} =action.payload;
-        return _result = eval(result);
+        _result = eval(result);
         this.emit('CHANGE');
         break;
         case 'EQ':
         let {value} =action.payload;
-        return _expression += value;
+        _expression += value;
         this.emit('CHANGE');
         break;
         case 'CLEAR':

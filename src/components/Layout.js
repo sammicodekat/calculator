@@ -22,7 +22,7 @@ componentWillUnmount(){
 
 _onChange(){
   this.setState({
-    results: Store._getresult(),
+    result: Store._getresult(),
     expression: Store._getexpression()
   })
 }

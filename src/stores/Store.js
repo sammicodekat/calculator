@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher';
 import {EventEmitter} from 'events';
 
-let _result = 0;
+let _result = '';
 let _expression = '';
 class Store extends EventEmitter{
   constructor(){
@@ -19,7 +19,8 @@ class Store extends EventEmitter{
         this.emit('CHANGE');
         break;
         case 'CLEAR':
-        return _result = 0;
+        _expression = '';
+        _result = '';
         this.emit('CHANGE');
         break;
       }

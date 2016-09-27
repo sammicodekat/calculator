@@ -4,6 +4,8 @@ import Actions from '../actions/Actions'
 export default class Keys extends Component {
   constructor (props) {
     super(props);
+    this._equal = this._equal.bind(this);
+    this._clear= this._clear.bind(this);
   }
 
   _buttonInput(event){
@@ -11,18 +13,18 @@ export default class Keys extends Component {
       Actions.eq(pButton);
   }
   _equal(){
-    const {result} =this.props;
-    Actions.equal(result);
+    const {expression} =this.props;
+    Actions.equal(expression);
   }
   _clear(){
-    const {result} =this.props;
-    Actions.clear(result);
+    const {expression} =this.props;
+    Actions.clear(expression);
   }
 
   render(){
     const {result,expression} = this.props;
     let expressions = '';
-		result ? expressions = result : expressions = this.props.expression;
+    expressions = result ? result : expression;
     return(
       <div id="calculator">
       <div className ="keys">
